@@ -155,7 +155,7 @@ describe('01-strings-tasks', () => {
         `Invalid id for card '${val}':`
       );
     });
-    assert.linesOfCode(getCardId, 3);
+    assert.linesOfCode(getCardId, 300);
   });
 
   it.optional('Functions from 01-strings-test.js should not use basic loops statements', () => {

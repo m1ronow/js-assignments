@@ -266,7 +266,36 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  throw new Error('Not implemented');
+  n = value[0];
+  m = value[1];
+  if(value.length === 3) {
+    n = value.slice(0,2);
+    m = value[2];
+  }
+  let a = 0;
+  if(value.charCodeAt(0) >= 65 && value.charCodeAt(0) <= 90) {
+    if(n === 'A') a = 0;
+    else if(n === 'J') a = 10;
+    else if(n === 'Q') a = 11;
+    else if(n === 'K') a = 12;
+  } else {
+    a = Number(n) - 1;
+  }
+  switch(m) {
+    case '♣': 
+    a += 0;
+    break;
+    case '♦':
+    a += 13;
+    break;
+    case '♥':
+    a += 26;
+    break;
+    case '♠':
+    a += 39;
+    break;
+  }
+  return a;
 }
 
 module.exports = {
